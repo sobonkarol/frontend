@@ -21,6 +21,7 @@ function App() {
         localStorage.setItem('isLoggedIn', 'true');
     };
 
+    
     const handleLogout = () => {
         setIsLoggedIn(false);
         localStorage.removeItem('isLoggedIn'); // Usuń stan logowania
