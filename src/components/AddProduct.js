@@ -35,7 +35,7 @@ function AddProduct() {
 
         // Wysłanie danych do serwera
         try {
-            await axios.post('http://localhost:5001/add-product', formData, {
+            await axios.post('https://thinkoze-admin-be.netlify.app/add-product', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

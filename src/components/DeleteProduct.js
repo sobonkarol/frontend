@@ -13,7 +13,7 @@ function DeleteProduct() {
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const response = await axios.get('http://localhost:5001/products');
+            const response = await axios.get('https://thinkoze-admin-be.netlify.app/products');
             setProducts(response.data);
         };
         fetchProducts();
@@ -25,12 +25,12 @@ function DeleteProduct() {
     };
 
     const handleDeleteConfirm = async () => {
-        await axios.delete(`http://localhost:5001/delete-product/${selectedProduct._id}`);
+        await axios.delete(`https://thinkoze-admin-be.netlify.app/delete-product/${selectedProduct._id}`);
         setShowDeleteModal(false);
         setSnackbarOpen(true); // Otwórz Snackbar po usunięciu
     
         // Zamiast pełnego odświeżenia, pobieramy listę produktów ponownie
-        const response = await axios.get('http://localhost:5001/products');
+        const response = await axios.get('https://thinkoze-admin-be.netlify.app/products');
         setProducts(response.data);
     };    
 

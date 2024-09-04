@@ -21,7 +21,7 @@ function ManageProducts() {
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const response = await axios.get('http://localhost:5001/products');
+            const response = await axios.get('https://thinkoze-admin-be.netlify.app/products');
             setProducts(response.data);
         };
         fetchProducts();
@@ -58,7 +58,7 @@ function ManageProducts() {
             formData.append('pdf', pdf);
         }
 
-        await axios.put(`http://localhost:5001/edit-product/${selectedProduct._id}`, formData, {
+        await axios.put(`https://thinkoze-admin-be.netlify.app/edit-product/${selectedProduct._id}`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
@@ -70,19 +70,19 @@ function ManageProducts() {
         setSnackbarOpen(true); // Otwórz Snackbar po edycji
 
         // Fetch updated list of products
-        const response = await axios.get('http://localhost:5001/products');
+        const response = await axios.get('https://thinkoze-admin-be.netlify.app/products');
         setProducts(response.data);
     };
 
     const handleDeleteConfirm = async () => {
-        await axios.delete(`http://localhost:5001/delete-product/${selectedProduct._id}`);
+        await axios.delete(`https://thinkoze-admin-be.netlify.app/delete-product/${selectedProduct._id}`);
         setShowDeleteModal(false);
         setSnackbarMessage('Produkt usunięty!');
         setSnackbarSeverity('success');
         setSnackbarOpen(true); // Otwórz Snackbar po usunięciu
 
         // Fetch updated list of products
-        const response = await axios.get('http://localhost:5001/products');
+        const response = await axios.get('https://thinkoze-admin-be.netlify.app/products');
         setProducts(response.data);
     };
 
@@ -108,7 +108,7 @@ function ManageProducts() {
                             <td>{product.description}</td>
                             <td>
                                 {product.imageUrl ? (
-                                    <a href={`http://localhost:5001${product.imageUrl}`} target="_blank" rel="noopener noreferrer">
+                                    <a href={`https://thinkoze-admin-be.netlify.app${product.imageUrl}`} target="_blank" rel="noopener noreferrer">
                                         Zobacz zdjęcie
                                     </a>
                                 ) : (
@@ -117,7 +117,7 @@ function ManageProducts() {
                             </td>
                             <td>
                                 {product.pdfUrl ? (
-                                    <a href={`http://localhost:5001${product.pdfUrl}`} target="_blank" rel="noopener noreferrer">
+                                    <a href={`https://thinkoze-admin-be.netlify.app${product.pdfUrl}`} target="_blank" rel="noopener noreferrer">
                                         Zobacz kartę techniczną
                                     </a>
                                 ) : (
